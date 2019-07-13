@@ -63,7 +63,7 @@ class Message extends Component {
             likesAmount={this.state.likesAmount}
             onLike={this.onLike}
           />
-          <EditButton message={user.message} />
+          <EditButton message={user.message} onEdit={this.onDelete} />
           <DeleteButton onDelete={this.onDelete} />
         </div>
       </li>

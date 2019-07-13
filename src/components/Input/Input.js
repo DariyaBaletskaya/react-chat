@@ -1,5 +1,6 @@
 import { Component } from "react";
 import React from "react";
+import "./Input.css";
 
 class Input extends Component {
   state = {
@@ -25,7 +26,7 @@ class Input extends Component {
             onChange={e => this.onChange(e)}
             value={this.state.text}
             type="text"
-            placeholder="Enter your message and press ENTER"
+            placeholder="Type your message and press ENTER"
             autoFocus={true}
           />
           <button>Send</button>

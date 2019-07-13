@@ -5,6 +5,7 @@ import "./Button.css";
 class EditButton extends Component {
   onClick = e => {
     document.getElementById("msg-input").value = this.props.message;
+    this.props.onEdit();
   };
   render() {
     return (
