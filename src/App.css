@@ -1,0 +1,136 @@
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#spinner {
+  position: fixed;
+  top: 35%;
+  left: 40%;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.App-header {
+  background-color: #e3c4a8;
+  overflow: visible;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.Messages-list {
+  padding: 20px 0;
+  max-width: 900px;
+  width: 100%;
+  height: 34rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.Messages-message {
+  display: flex;
+  margin-top: 10px;
+}
+
+.Messages-message.currentMember {
+  /*justify-content: flex-end;*/
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.Message-content {
+  display: inline-block;
+}
+
+.like-btn {
+  background-color: #fff;
+  color: #3b3a36;
+}
+
+.user-btn {
+  background-color: #fff;
+  visibility: hidden;
+}
+
+.currentMember .user-btn {
+  visibility: visible;
+}
+
+.currentMember > .Message-content {
+  align-items: flex-end;
+}
+.currentMember .like-btn {
+  display: none;
+}
+.Messages-message .date {
+  display: block;
+  text-align: right;
+  color: gray;
+  font-size: 0.7rem;
+}
+
+.Messages-message > .avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 10px -10px;
+}
+
+.Message-content > .username {
+  display: block;
+  color: gray;
+  font-size: 14px;
+}
+
+.Message-content > .text {
+  padding: 10px;
+  max-width: 400px;
+  margin: 0;
+  border-radius: 12px;
+  background-color: cornflowerblue;
+  color: white;
+  display: inline-block;
+}
+
+.currentMember > .Message-content .text {
+  background-color: orangered;
+}
+
+.currentMember > .avatar {
+  display: none;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+input {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid orangered;
+  flex-grow: 1;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #8b5d5d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-left: 10px;
+}
