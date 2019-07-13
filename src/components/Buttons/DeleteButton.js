@@ -1,5 +1,6 @@
 import { Component } from "react";
 import React from "react";
+import "./Button.css";
 
 class DeleteButton extends Component {
   onClick = e => {
@@ -9,7 +10,9 @@ class DeleteButton extends Component {
     return (
       <button className="user-btn" onClick={e => this.onClick(e)}>
         {" "}
-        &#x274C;
+        <span role="img" aria-label="emoji">
+          &#x274C;
+        </span>
       </button>
     );
   }

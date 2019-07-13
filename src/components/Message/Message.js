@@ -1,8 +1,9 @@
 import { Component } from "react";
 import React from "react";
-import LikeButton from "./LikeButton";
-import EditButton from "./EditButton";
-import DeleteButton from "../DeleteButton";
+import LikeButton from "../Buttons/LikeButton";
+import EditButton from "../Buttons/EditButton";
+import DeleteButton from "../Buttons/DeleteButton";
+import "./Message.css";
 
 class Message extends Component {
   state = {
@@ -11,11 +12,18 @@ class Message extends Component {
 
   render() {
     let content = "";
+    let currentDate = new Date();
+    let userMessageDate = new Date(this.props.currentMember.created_at);
+
     if (
-      new Date(this.props.currentMember).getMonth() == new Date().getMonth() &&
-      new Date(this.props.currentMember).getDay() != new Date().getDay()
+      userMessageDate.getMonth() == currentDate.getMonth() &&
+      currentDate.getDay() - userMessageDate.getDay() < 1
     ) {
-      content = <h1>Yesterday</h1>;
+      content = (
+        <div>
+          <span className="date-separation">Yesterday</span> <hr />
+        </div>
+      );
     }
     return (
       <div>
@@ -40,7 +48,7 @@ class Message extends Component {
 
     return (
       <li className={className} id={user.created_at}>
-        <img src={user.avatar} className="avatar" />
+        <img src={user.avatar} className="avatar" alt="user-avatar" />
 
         <div className="Message-content">
           <div className="username">{user.user}</div>

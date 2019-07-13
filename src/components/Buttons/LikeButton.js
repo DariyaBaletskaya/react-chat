@@ -1,6 +1,6 @@
 import { Component } from "react";
 import React from "react";
-
+import "./Button.css";
 class LikeButton extends Component {
   onClick = e => {
     this.props.onLike();
@@ -8,7 +8,10 @@ class LikeButton extends Component {
   render() {
     return (
       <button className="like-btn" onClick={e => this.onClick(e)}>
-        &#x1F497; {this.props.likesAmount}
+        <span role="img" aria-label="emoji">
+          &#x1F497;
+        </span>{" "}
+        {this.props.likesAmount}
       </button>
     );
   }
