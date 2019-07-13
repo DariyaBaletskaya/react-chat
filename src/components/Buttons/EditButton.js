@@ -4,11 +4,11 @@ import "./Button.css";
 
 class EditButton extends Component {
   onClick = e => {
-    this.props.onLike();
+    document.getElementById("msg-input").value = this.props.message;
   };
   render() {
     return (
-      <button className="user-btn">
+      <button className="user-btn" onClick={e => this.onClick(e)}>
         {" "}
         <span role="img" aria-label="emoji">
           &#x270D;
