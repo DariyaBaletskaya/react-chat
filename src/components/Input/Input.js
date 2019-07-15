@@ -1,39 +1,44 @@
 import { Component } from "react";
 import React from "react";
 import "./Input.css";
+import PropTypes from "prop-types";
 
-class Input extends Component {
-  state = {
-    text: ""
-  };
+const Input = props => {
+  let input;
 
-  onChange(e) {
-    this.setState({ text: e.target.value });
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    this.setState({ text: "" });
-    this.props.onSendMessage(this.state.text);
-  }
-
-  render() {
-    return (
-      <div className="Input">
-        <form onSubmit={e => this.onSubmit(e)}>
-          <input
-            id="msg-input"
-            onChange={e => this.onChange(e)}
-            value={this.state.text}
-            type="text"
-            placeholder="Type your message and press ENTER"
-            autoFocus={true}
-          />
-          <button>Send</button>
-        </form>
+  return (
+    <div className="Input">
+      <div class="input-wrapper">
+        <input
+          id="msg-input"
+          //onChange={e => this.onChange(e)}
+          onKeyPress={e => {
+            if (e.key == "Enter") {
+              props.dispatch(
+                500,
+                "Jhon Doe",
+                "",
+                new Date().toDateString,
+                input.value
+              );
+              input.value = "";
+            }
+          }}
+          type="text"
+          ref={node => {
+            input = node;
+          }}
+          placeholder="Type your message and press ENTER"
+          autoFocus={true}
+        />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+// }
+
+Input.PropTypes = {
+  dispatch: PropTypes.func.isRequired
+};
 
 export default Input;
