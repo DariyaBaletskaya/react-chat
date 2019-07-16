@@ -25,7 +25,7 @@ class MessageList extends Component {
             Number(message.id),
             message.user,
             message.avatar,
-            new Date(message.created_at),
+            message.created_at,
             message.message
           );
         });
@@ -44,7 +44,7 @@ class MessageList extends Component {
             id={message.id}
             user={message.user}
             avatar={message.avatar}
-            date={message.created_at}
+            date={new Date(message.date).toDateString()}
             message={message.message}
             likes={message.likes}
             color={randomColor()}

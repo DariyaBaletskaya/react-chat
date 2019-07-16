@@ -8,7 +8,7 @@ const messages = (state = [], action) => {
           id: action.id,
           user: action.user,
           avatar: action.avatar,
-          date: action.created_at,
+          date: action.date,
           message: action.message,
           likes: action.likes
         }
