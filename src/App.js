@@ -3,6 +3,7 @@ import { MessageListContainer } from "./components/MessageList/MessageListContai
 import { InputContainer } from "./components/Input/InputContainer";
 import { HeaderContainer } from "./components/Header/HeaderContainer";
 import MessageModal from "./components/MessageModal";
+import Spinner from "./components/Spinner/Spinner";
 import "./App.css";
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderContainer />
+        <Spinner />
         <MessageListContainer />
         <InputContainer />
         <MessageModal />

@@ -1,6 +1,6 @@
 import * as types from "../components/MessageList/actionTypes";
 
-const state = (state = [], action) => {
+const messages = (state = [], action) => {
   switch (action.type) {
     case types.ADD_MESSAGE:
       return state.concat([
@@ -39,4 +39,4 @@ const state = (state = [], action) => {
   }
 };
 
-export default state;
+export default messages;

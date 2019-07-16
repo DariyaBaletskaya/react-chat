@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import Message from "../Message/Message";
+
 import axios from "axios";
 
 function randomColor() {
@@ -28,6 +29,7 @@ class MessageList extends Component {
             message.message
           );
         });
+        this.props.hideSpinner();
       })
       .catch(error => {
         console.log(error);

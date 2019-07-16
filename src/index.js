@@ -11,10 +11,12 @@ import * as serviceWorker from "./serviceWorker";
 
 import messages from "./reducers/messages";
 import modal from "./reducers/modal";
+import spinner from "./reducers/spinner";
 
 const rootReducer = combineReducers({
   messages,
-  modal
+  modal,
+  spinner
 });
 
 const store = createStore(rootReducer);
