@@ -25,6 +25,6 @@ export const deleteMessage = id => ({
 });
 
 export const likeMessage = id => ({
-  type: types.DELETE_MESSAGE,
+  type: types.LIKE_MESSAGE,
   id
 });

@@ -8,17 +8,17 @@ const Input = props => {
 
   return (
     <div className="Input">
-      <div class="input-wrapper">
+      <div className="input-wrapper">
         <input
           id="msg-input"
           //onChange={e => this.onChange(e)}
           onKeyPress={e => {
             if (e.key == "Enter") {
-              props.dispatch(
-                500,
+              props.addMessage(
+                0,
                 "Jhon Doe",
                 "",
-                new Date().toDateString,
+                new Date().toDateString(),
                 input.value
               );
               input.value = "";

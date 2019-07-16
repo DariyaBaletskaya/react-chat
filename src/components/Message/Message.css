@@ -13,6 +13,10 @@
   display: inline-block;
 }
 
+.user-btn {
+  visibility: hidden;
+}
+
 .currentMember .user-btn {
   visibility: visible;
 }

@@ -1,19 +1,15 @@
 import { connect } from "react-redux";
 import MessageList from "./MessageList";
-import { addMessage, likeMessage } from "../../actions/actions";
+import { addMessage } from "../../actions/actions";
 
-const mapDispatchToProps = dispatch => ({
-  dispatchAdd: (id, user, avatar, date, message) => {
-    dispatch(addMessage(id, user, avatar, date, message));
-  },
-  dispatchLike: id => {
-    dispatch(likeMessage(id));
-  }
+const mapStateToProps = state => ({
+  messages: state
 });
+const mapDispatchToProps = {
+  addMessage
+};
 
 export const MessageListContainer = connect(
-  state => ({
-    messages: state
-  }),
+  mapStateToProps,
   mapDispatchToProps
 )(MessageList);

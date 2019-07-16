@@ -23,8 +23,8 @@ class MessageList extends Component {
           (a, b) => new Date(a.created_at) - new Date(b.created_at)
         );
         messagesFromApi.map(message => {
-          this.props.dispatchAdd(
-            message.id,
+          this.props.addMessage(
+            Number(message.id),
             message.user,
             message.avatar,
             new Date(message.created_at).toDateString(),
@@ -42,9 +42,10 @@ class MessageList extends Component {
         {this.props.messages.map(message => (
           <Message
             key={message.id}
+            id={message.id}
             user={message.user}
             avatar={message.avatar}
-            date={message.date}
+            date={message.created_at}
             message={message.message}
             likes={message.likes}
             color={randomColor()}

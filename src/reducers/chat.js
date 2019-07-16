@@ -3,6 +3,7 @@ import * as types from "../actions/actionTypes";
 const messages = (state = [], action) => {
   switch (action.type) {
     case types.ADD_MESSAGE:
+      console.log(state);
       return state.concat([
         {
           id: action.id,
@@ -13,12 +14,13 @@ const messages = (state = [], action) => {
           likes: action.likes
         }
       ]);
+
     case types.DELETE_MESSAGE:
       let fileteredMessages = state.filter(message => message.id != action.id);
       return fileteredMessages;
     case types.LIKE_MESSAGE:
       let likedMessages = state.map(message => {
-        if (message.id === action.id) {
+        if (message.id == action.id) {
           message.likes++;
         }
         return message;
