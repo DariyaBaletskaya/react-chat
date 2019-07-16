@@ -28,3 +28,9 @@ export const likeMessage = id => ({
   type: types.LIKE_MESSAGE,
   id
 });
+
+export const updateMessage = (id, data) => ({
+  type: types.EDIT_MESSAGE,
+  id,
+  data
+});

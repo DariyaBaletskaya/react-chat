@@ -1,4 +1,3 @@
-import { Component } from "react";
 import React from "react";
 import "./Input.css";
 import PropTypes from "prop-types";
@@ -13,7 +12,7 @@ const Input = props => {
           id="msg-input"
           //onChange={e => this.onChange(e)}
           onKeyPress={e => {
-            if (e.key == "Enter") {
+            if (e.key === "Enter") {
               props.addMessage(
                 0,
                 "Jhon Doe",

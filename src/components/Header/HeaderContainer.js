@@ -3,7 +3,7 @@ import Header from "./Header";
 
 export const HeaderContainer = connect(
   state => ({
-    messages: state
+    messages: state.messages
   }),
   {}
 )(Header);

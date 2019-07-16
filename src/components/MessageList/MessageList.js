@@ -9,25 +9,22 @@ function randomColor() {
 }
 
 class MessageList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     axios
       .get("https://api.myjson.com/bins/1hiqin")
       .then(response => {
         //sort users by message time
         const messagesFromApi = response.data;
+
         messagesFromApi.sort(
           (a, b) => new Date(a.created_at) - new Date(b.created_at)
         );
         messagesFromApi.map(message => {
-          this.props.addMessage(
+          return this.props.addMessage(
             Number(message.id),
             message.user,
             message.avatar,
-            new Date(message.created_at).toDateString(),
+            new Date(message.created_at),
             message.message
           );
         });

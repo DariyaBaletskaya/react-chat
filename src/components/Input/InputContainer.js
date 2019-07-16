@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import Input from "./Input";
-import { addMessage } from "../../actions/actions";
+import { addMessage } from "../MessageList/actions";
 
 const mapStateToProps = state => ({
-  messages: state
+  messages: state.messages
 });
 const mapDispatchToProps = {
   addMessage

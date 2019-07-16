@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { deleteMessage, likeMessage } from "../../actions/actions";
+import { deleteMessage, likeMessage } from "../MessageList/actions";
+import { showPage, setCurrentMessageId } from "../MessageModal/actions";
 import PropTypes from "prop-types";
 
 import "./Message.css";
 
 class Message extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   onDelete = id => {
     this.props.deleteMessage(id);
   };
   onLike = id => {
     this.props.likeMessage(id);
+  };
+  onEdit = id => {
+    this.props.setCurrentMessageId(id);
+    this.props.showPage();
   };
   render() {
     const messageFromMe = this.props.id === 0;
@@ -53,6 +54,17 @@ class Message extends Component {
               &#x274C;
             </span>
           </button>
+
+          <button
+            className="user-btn"
+            onClick={e => {
+              this.onEdit(this.props.id);
+            }}
+          >
+            <span role="img" aria-label="emoji">
+              &#x270D;
+            </span>
+          </button>
         </div>
       </li>
     );
@@ -60,11 +72,14 @@ class Message extends Component {
 }
 
 const mapStateToProps = state => ({
-  messages: state
+  messages: state.messages,
+  isShown: state.modal.isShown
 });
 const mapDispatchToProps = {
   deleteMessage,
-  likeMessage
+  likeMessage,
+  showPage,
+  setCurrentMessageId
 };
 
 Message.PropTypes = {
@@ -72,8 +87,7 @@ Message.PropTypes = {
   user: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-  dispatch: PropTypes.func.isRequired
+  color: PropTypes.string.isRequired
 };
 
 export default connect(
