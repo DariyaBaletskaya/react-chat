@@ -70,33 +70,39 @@ router.post(
 );
 
 //add user using request-body data
-router.delete("/:id", isAuthorized, function(req, res, next) {
-  //debug
-  debug(req.method + " " + req.url);
-  console.log("Cookies: ", req.cookies);
-  console.log("Signed Cookies: ", req.signedCookies);
+router.delete(
+  "/:id",
+  /*isAuthorized, */ function(req, res, next) {
+    //debug
+    debug(req.method + " " + req.url);
+    console.log("Cookies: ", req.cookies);
+    console.log("Signed Cookies: ", req.signedCookies);
 
-  const result = deleteUserById(req.params.id);
-  if (result) {
-    res.send(`<h1>Succesfully deleted</h1>`);
-  } else {
-    res.status(400).send(`<h1>Cant't delete user</h1>`);
+    const result = deleteUserById(req.params.id);
+    if (result) {
+      res.send(`<h1>Succesfully deleted</h1>`);
+    } else {
+      res.status(400).send(`<h1>Cant't delete user</h1>`);
+    }
   }
-});
+);
 
 //add user using request-body data
-router.put("/:id", isAuthorized, function(req, res, next) {
-  //debug
-  debug(req.method + " " + req.url);
-  console.log("Cookies: ", req.cookies);
-  console.log("Signed Cookies: ", req.signedCookies);
+router.put(
+  "/:id",
+  /*isAuthorized, */ function(req, res, next) {
+    //debug
+    debug(req.method + " " + req.url);
+    console.log("Cookies: ", req.cookies);
+    console.log("Signed Cookies: ", req.signedCookies);
 
-  const result = updateUserById(req.params.id, req.body);
-  if (result) {
-    res.send(`<h1>Succesfully updated<h1>`);
-  } else {
-    res.status(400).send(`<h1>Cant't update user</h1>`);
+    const result = updateUserById(req.params.id, req.body);
+    if (result) {
+      res.send(`<h1>Succesfully updated<h1>`);
+    } else {
+      res.status(400).send(`<h1>Cant't update user</h1>`);
+    }
   }
-});
+);
 
 module.exports = router;
