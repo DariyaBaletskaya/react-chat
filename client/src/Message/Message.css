@@ -1,0 +1,75 @@
+.Messages-message {
+  display: flex;
+  margin-top: 10px;
+}
+
+.Messages-message.currentMember {
+  /*justify-content: flex-end;*/
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.Message-content {
+  display: inline-block;
+}
+
+.user-btn {
+  visibility: hidden;
+}
+
+.currentMember .user-btn {
+  visibility: visible;
+}
+
+.currentMember > .Message-content {
+  align-items: flex-end;
+}
+.currentMember .like-btn {
+  display: none;
+}
+.Messages-message .date {
+  display: block;
+  text-align: center;
+  color: gray;
+  font-size: 0.7rem;
+}
+
+.Messages-message > .avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 10px -10px;
+}
+
+.Message-content > .username {
+  display: block;
+  color: gray;
+  font-size: 14px;
+}
+
+.Message-content > .text {
+  padding: 10px;
+  max-width: 400px;
+  margin: 0;
+  border-radius: 12px;
+  background-color: cornflowerblue;
+  color: white;
+  display: inline-block;
+}
+
+.currentMember > .Message-content .text {
+  background-color: orangered;
+}
+
+.currentMember > .avatar {
+  display: none;
+}
+
+.date-separation {
+  display: block;
+  text-align: center;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.671);
+  font-size: 0.7rem;
+}
