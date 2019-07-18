@@ -17,7 +17,8 @@ const Message = props => {
     props.showPage();
   };
 
-  const messageFromMe = props.id === 0;
+  const messageFromMe = props.fromCurrentUser;
+  console.log(messageFromMe);
   const className = messageFromMe
     ? "Messages-message currentMember"
     : "Messages-message";

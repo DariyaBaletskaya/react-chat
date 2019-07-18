@@ -3,7 +3,8 @@ import Input from "./Input";
 import { addMessage } from "../MessageList/actions";
 
 const mapStateToProps = state => ({
-  messages: state.messages
+  messages: state.messages,
+  response: state.login
 });
 const mapDispatchToProps = {
   addMessage

@@ -10,7 +10,8 @@ const messages = (state = [], action) => {
           avatar: action.avatar,
           date: action.date,
           message: action.message,
-          likes: action.likes
+          likes: action.likes,
+          fromCurrentUser: action.fromCurrentUser
         }
       ]);
 

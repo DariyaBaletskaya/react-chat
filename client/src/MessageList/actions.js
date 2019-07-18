@@ -8,7 +8,8 @@ export const addMessage = (
   avatar,
   date,
   message,
-  likes = 0
+  likes = 0,
+  fromCurrentUser = false
 ) => ({
   type: types.ADD_MESSAGE,
   id,
@@ -16,7 +17,8 @@ export const addMessage = (
   avatar,
   date,
   message,
-  likes
+  likes,
+  fromCurrentUser
 });
 
 export const deleteMessage = id => ({

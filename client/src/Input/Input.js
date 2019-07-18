@@ -1,9 +1,11 @@
 import React from "react";
 import "./Input.css";
+import userService from "../services/userService";
 
 const Input = props => {
   let input;
-  let idGenerator = 0;
+  let idGenerator = userService.getNewId();
+  let user = props.response.response[0];
 
   return (
     <div className="Input">
@@ -13,11 +15,13 @@ const Input = props => {
           onKeyPress={e => {
             if (e.key === "Enter") {
               props.addMessage(
-                idGenerator++,
-                "Jhon Doe",
+                idGenerator,
+                `${user.name} ${user.surname}`,
                 "",
                 new Date().toDateString(),
-                input.value
+                input.value,
+                0,
+                true
               );
               input.value = "";
             }

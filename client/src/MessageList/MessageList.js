@@ -25,7 +25,9 @@ class MessageList extends Component {
             message.user,
             message.avatar,
             message.created_at,
-            message.message
+            message.message,
+            0,
+            false
           );
         });
         this.props.hideSpinner();
@@ -47,6 +49,7 @@ class MessageList extends Component {
             message={message.message}
             likes={message.likes}
             color={randomColor()}
+            fromCurrentUser={message.fromCurrentUser}
           />
         ))}
       </ul>
