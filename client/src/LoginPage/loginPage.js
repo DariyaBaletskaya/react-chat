@@ -27,20 +27,12 @@ class LoginPage extends Component {
     let response = this.props.response.response;
     let isAdmin = false;
     let isUser = false;
-    let loginError = "";
     if (response) {
-      // if (
-      //   response.hasOwnProperty("name") &&
-      //   response.hasOwnProperty("password")
-      // ) {
       if (response[0].name === "admin" && response[0].password === "admin") {
         isAdmin = true;
       } else {
         isUser = true;
       }
-      // } else {
-      //   loginError = "Wrong credentials";
-      // }
     }
 
     return (
@@ -50,14 +42,6 @@ class LoginPage extends Component {
         tabIndex="-1"
         role="dialog"
       >
-        <div
-          className="modal-header"
-          style={{ margin: "1rem auto", width: "20rem" }}
-        >
-          <h3 className="modal-title" style={{ color: "#8b5d5d" }}>
-            {loginError}
-          </h3>
-        </div>
         <div
           className="modal-dialog"
           role="document"
