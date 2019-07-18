@@ -1,9 +1,9 @@
-var express = require("express");
-var debug = require("debug")("router");
-var fs = require("fs");
-var morgan = require("morgan");
-var path = require("path");
-var router = express.Router();
+const express = require("express");
+const debug = require("debug")("router");
+const fs = require("fs");
+const morgan = require("morgan");
+const path = require("path");
+const router = express.Router();
 
 const { addUser } = require("../services/user.service");
 const { getAllUsers } = require("../services/user.service");
@@ -13,9 +13,12 @@ const { updateUserById } = require("../services/user.service");
 const { isAuthorized } = require("../middlewares/auth.middleware");
 
 //creating log directory
-var accessLogStream = fs.createWriteStream(path.join(__dirname, "access.log"), {
-  flags: "a"
-});
+const accessLogStream = fs.createWriteStream(
+  path.join(__dirname, "access.log"),
+  {
+    flags: "a"
+  }
+);
 router.use(morgan("combined", { stream: accessLogStream }));
 
 //get all users
