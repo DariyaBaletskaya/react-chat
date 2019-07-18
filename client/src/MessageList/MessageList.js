@@ -55,17 +55,4 @@ class MessageList extends Component {
   }
 }
 
-// MessageList.PropTypes = {
-//   messages: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       user: PropTypes.string.isRequired,
-//       avatar: PropTypes.string.isRequired,
-//       date: PropTypes.string.isRequired,
-//       message: PropTypes.string.isRequired,
-//       color: PropTypes.string.isRequired
-//     })
-//   ).isRequired
-// };
-
 export default MessageList;

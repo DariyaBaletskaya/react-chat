@@ -1,75 +1,58 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { deleteMessage, likeMessage } from "../MessageList/actions";
 import { showPage, setCurrentMessageId } from "../MessageModal/actions";
-import PropTypes from "prop-types";
 
 import "./Message.css";
 
-class Message extends Component {
-  onDelete = id => {
-    this.props.deleteMessage(id);
+const Message = props => {
+  const onDelete = id => {
+    props.deleteMessage(props.id);
   };
-  onLike = id => {
-    this.props.likeMessage(id);
+  const onLike = id => {
+    props.likeMessage(props.id);
   };
-  onEdit = id => {
-    this.props.setCurrentMessageId(id);
-    this.props.showPage();
+  const onEdit = id => {
+    props.setCurrentMessageId(props.id);
+    props.showPage();
   };
-  render() {
-    const messageFromMe = this.props.id === 0;
-    const className = messageFromMe
-      ? "Messages-message currentMember"
-      : "Messages-message";
-    return (
-      <li className={className}>
-        <img src={this.props.avatar} className="avatar" alt="user-avatar" />
 
-        <div className="Message-content">
-          <div className="username">{this.props.user}</div>
-          <span className="date">{this.props.date}</span>
-          <div className="text" style={{ backgroundColor: this.props.color }}>
-            {this.props.message}
-          </div>
-          <button
-            className="like-btn"
-            onClick={e => {
-              this.onLike(this.props.id);
-            }}
-          >
-            <span role="img" aria-label="emoji">
-              &#x1F497;
-            </span>
-            {this.props.likes}
-          </button>
+  const messageFromMe = props.id === 0;
+  const className = messageFromMe
+    ? "Messages-message currentMember"
+    : "Messages-message";
+  return (
+    <li className={className}>
+      <img src={props.avatar} className="avatar" alt="user-avatar" />
 
-          <button
-            className="user-btn"
-            onClick={e => {
-              this.onDelete(this.props.id);
-            }}
-          >
-            <span role="img" aria-label="emoji">
-              &#x274C;
-            </span>
-          </button>
-
-          <button
-            className="user-btn"
-            onClick={e => {
-              this.onEdit(this.props.id);
-            }}
-          >
-            <span role="img" aria-label="emoji">
-              &#x270D;
-            </span>
-          </button>
+      <div className="Message-content">
+        <div className="username">{props.user}</div>
+        <span className="date">{props.date}</span>
+        <div className="text" style={{ backgroundColor: props.color }}>
+          {props.message}
         </div>
-      </li>
-    );
-  }
-}
+        <button className="like-btn" onClick={onLike}>
+          <span role="img" aria-label="emoji">
+            &#x1F497;
+          </span>
+          {props.likes}
+        </button>
+
+        <button className="user-btn" onClick={onDelete}>
+          <span role="img" aria-label="emoji">
+            &#x274C;
+          </span>
+        </button>
+
+        <button className="user-btn" onClick={onEdit}>
+          <span role="img" aria-label="emoji">
+            &#x270D;
+          </span>
+        </button>
+      </div>
+    </li>
+  );
+};
 
 const mapStateToProps = state => ({
   messages: state.messages,
@@ -81,14 +64,6 @@ const mapDispatchToProps = {
   showPage,
   setCurrentMessageId
 };
-
-// Message.PropTypes = {
-//   id: PropTypes.number.isRequired,
-//   user: PropTypes.string.isRequired,
-//   avatar: PropTypes.string.isRequired,
-//   message: PropTypes.string.isRequired,
-//   color: PropTypes.string.isRequired
-// };
 
 export default connect(
   mapStateToProps,

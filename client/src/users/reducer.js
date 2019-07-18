@@ -1,12 +1,22 @@
 import { FETCH_USERS_SUCCESS } from "./actionTypes";
 
-export default function (state = [], action) {
-    switch (action.type) {
-        case FETCH_USERS_SUCCESS: {
-            return [...action.payload.users];
-        }
+const initialState = [
+  {
+    id: 0,
+    name: "admin",
+    surname: "admin",
+    email: "admin@gmail.com",
+    password: "admin"
+  }
+];
 
-        default:
-            return state;
+export default function(state = initialState, action) {
+  switch (action.type) {
+    case FETCH_USERS_SUCCESS: {
+      return [...action.payload.users];
     }
+
+    default:
+      return state;
+  }
 }

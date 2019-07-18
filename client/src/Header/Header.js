@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Header.css";
 
 const Header = ({ messages }) => {
@@ -17,18 +16,5 @@ const Header = ({ messages }) => {
     </div>
   );
 };
-
-// Header.PropTypes = {
-//   messages: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       user: PropTypes.string.isRequired,
-//       avatar: PropTypes.string.isRequired,
-//       date: PropTypes.string.isRequired,
-//       message: PropTypes.string.isRequired,
-//       color: PropTypes.string.isRequired
-//     })
-//   ).isRequired
-// };
 
 export default Header;

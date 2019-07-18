@@ -135,12 +135,8 @@ class UserPage extends Component {
               )}
             </div>
             <div className="modal-footer">
-              <button className="btn btn-secondary" onClick={this.onCancel}>
-                Cancel
-              </button>
-              <button className="btn btn-primary" onClick={this.onSave}>
-                Save
-              </button>
+              <button onClick={this.onCancel}>Cancel</button>
+              <button onClick={this.onSave}>Save</button>
             </div>
           </div>
         </div>

@@ -13,10 +13,11 @@ function App() {
   return (
     <div className="App">
       {/* <HeaderContainer />
-      <Spinner />
+
       <MessageListContainer />
       <InputContainer />
       <MessageModal /> */}
+      <Spinner />
       <Switch>
         <Route exact path="/" component={UserList} />
         <Route exact path="/user" component={UserPage} />

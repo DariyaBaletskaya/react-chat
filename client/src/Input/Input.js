@@ -1,20 +1,19 @@
 import React from "react";
 import "./Input.css";
-import PropTypes from "prop-types";
 
 const Input = props => {
   let input;
+  let idGenerator = 0;
 
   return (
     <div className="Input">
       <div className="input-wrapper">
         <input
           id="msg-input"
-          //onChange={e => this.onChange(e)}
           onKeyPress={e => {
             if (e.key === "Enter") {
               props.addMessage(
-                0,
+                idGenerator++,
                 "Jhon Doe",
                 "",
                 new Date().toDateString(),
@@ -34,10 +33,5 @@ const Input = props => {
     </div>
   );
 };
-// }
-
-// Input.PropTypes = {
-//   dispatch: PropTypes.func.isRequired
-// };
 
 export default Input;
