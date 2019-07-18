@@ -3,21 +3,21 @@
     "id": 1,
     "name": "admin",
     "surname": "admin",
-    "email": "admin@gmail.com",
+    "email": "admin@admin.com",
     "password": "admin"
   },
   {
     "id": 2,
-    "name": "admin",
-    "surname": "admin",
-    "email": "admin@gmail.com",
-    "password": "admin"
+    "name": "Jhon",
+    "surname": "Doe",
+    "email": "jhon.doe@gmail.com",
+    "password": "password"
   },
   {
     "id": 3,
-    "name": "admin",
-    "surname": "admin",
-    "email": "admin@gmail.com",
-    "password": "admin"
+    "name": "Elon",
+    "surname": "Mask",
+    "email": "elon@gmail.com",
+    "password": "tesla"
   }
 ]

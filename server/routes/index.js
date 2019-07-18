@@ -2,6 +2,8 @@ const express = require("express");
 const debug = require("debug")("router");
 const router = express.Router();
 
+const { authoriseUser } = require("../services/user.service");
+
 /* GET home page. */
 router.get("/", function(req, res, next) {
   debug(req.method + " " + req.url);
@@ -12,5 +14,23 @@ router.get("/", function(req, res, next) {
             <code>PUT:/user/:id</code> – update user according to the data from the request body<br>
             <code>DELETE:/user/:id</code> – delete one user by ID<br>`);
 });
+
+router.post(
+  "/",
+  /*isAuthorized, */ function(req, res, next) {
+    //debug
+    debug(req.method + " " + req.url);
+    console.log("Cookies: ", req.cookies);
+    console.log("Signed Cookies: ", req.signedCookies);
+
+    const result = authoriseUser(req.body.email, req.body.password);
+
+    if (result) {
+      res.status(200).json(result);
+    } else {
+      res.status(400).send(`<h1>Couldn't find user with this id</h1>`);
+    }
+  }
+);
 
 module.exports = router;

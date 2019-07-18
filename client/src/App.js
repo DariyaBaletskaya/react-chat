@@ -1,27 +1,23 @@
 import React from "react";
-import { MessageListContainer } from "./MessageList/MessageListContainer";
-import { InputContainer } from "./Input/InputContainer";
-import { HeaderContainer } from "./Header/HeaderContainer";
-import MessageModal from "./MessageModal";
 import Spinner from "./Spinner/Spinner";
 import UserList from "./users/index";
 import UserPage from "./userPage/index";
+import LoginPage from "./LoginPage/loginPage";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
+import Chat from "./Chat";
 
 function App() {
   return (
     <div className="App">
-      {/* <HeaderContainer />
-
-      <MessageListContainer />
-      <InputContainer />
-      <MessageModal /> */}
       <Spinner />
       <Switch>
-        <Route exact path="/" component={UserList} />
-        <Route exact path="/user" component={UserPage} />
+        <Route path="/" exact={true} component={LoginPage} />
+        <Route path="/login" exact={true} component={LoginPage} />
+        <Route path="/dashboard" component={UserList} />
+        <Route path="/user" component={UserPage} />
         <Route path="/user/:id" component={UserPage} />
+        <Route path="/chat" component={Chat} />
       </Switch>
     </div>
   );

@@ -25,6 +25,14 @@ const getAllData = () => {
   return result;
 };
 
+const getDataByCredentials = (email, password) => {
+  const allUsers = getAllData();
+  const result = allUsers.filter(
+    user => user.email === email && user.password == password
+  );
+  return result.slice(0, 1);
+};
+
 const getDataById = id => {
   //convert id into Number
   const convertedId = Number(id);
@@ -64,5 +72,6 @@ module.exports = {
   getAllData,
   getDataById,
   deleteDataById,
-  updateDataById
+  updateDataById,
+  getDataByCredentials
 };

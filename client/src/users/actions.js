@@ -1,5 +1,5 @@
 import { ADD_USER, UPDATE_USER, DELETE_USER, FETCH_USERS } from "./actionTypes";
-import service from "./service";
+
 let idGenerator = 1;
 
 export const addUser = data => ({

@@ -3,10 +3,9 @@ const { getAllData } = require("../repositories/user.repository");
 const { getDataById } = require("../repositories/user.repository");
 const { deleteDataById } = require("../repositories/user.repository");
 const { updateDataById } = require("../repositories/user.repository");
+const { getDataByCredentials } = require("../repositories/user.repository");
 
-
-
-const addUser = (user) => {
+const addUser = user => {
   if (user) {
     return saveData(user);
   } else {
@@ -18,25 +17,34 @@ const getAllUsers = () => {
   return getAllData();
 };
 
-const getUserById = (id) => {
+const getUserById = id => {
   const result = getDataById(id);
-  
-  if(result){
+
+  if (result) {
     return result;
   } else {
     return null;
   }
 };
 
-const deleteUserById = (id) => {
+const deleteUserById = id => {
   const result = deleteDataById(id);
   return result;
 };
 
 const updateUserById = (id, data) => {
   const result = updateDataById(id, data);
-  
-  if(result){
+
+  if (result) {
+    return result;
+  } else {
+    return null;
+  }
+};
+
+const authoriseUser = (email, password) => {
+  const result = getDataByCredentials(email, password);
+  if (result) {
     return result;
   } else {
     return null;
@@ -48,5 +56,6 @@ module.exports = {
   getAllUsers,
   getUserById,
   deleteUserById,
-  updateUserById
+  updateUserById,
+  authoriseUser
 };

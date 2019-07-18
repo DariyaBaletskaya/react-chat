@@ -10,10 +10,6 @@ const EmailInput = props => {
     setIsValid(isValid);
   };
 
-  const getValidationStatus = () => {
-    return isValid;
-  };
-
   const getErrorMessage = () => {
     return <span className="error-message">That is not a valid email</span>;
   };
