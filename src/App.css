@@ -1,0 +1,38 @@
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#spinner {
+  position: fixed;
+  top: 35%;
+  left: 40%;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.Messages-list {
+  padding: 20px 0;
+  max-width: 900px;
+  width: 100%;
+  height: 30rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+button {
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #8b5d5d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-left: 10px;
+}
