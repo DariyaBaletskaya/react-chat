@@ -10,3 +10,5 @@ _Task solution for Binary Studio Academy 2019_
 * `React`
 * `Redux`
 * `Redux-Saga`
+* Wrap app in `Docker`-[container](https://cloud.docker.com/u/baletskaya/repository/docker/baletskaya/react-chat-prod)
+* Deployed `Heroku`
